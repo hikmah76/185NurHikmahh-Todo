@@ -11,9 +11,17 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+    
+                    <x-nav-link href="{{ route('todo.index') }}" :active="request()->routeIs('todo.index')">
+                         {{ __('Todo') }}
+                     </x-nav-link>
+
+                    <x-nav-link href="{{ route('user.index') }}" :active="request()->routeIs('user.index')">
+                         {{ __('User') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -65,6 +73,22 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
+     
+    <div :class="{ 'block': open, 'hidden': ! open }" class="hidden sm:hidden">
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('todo.index')" :active="request()->routeIs('todo.index')">
+                {{ __('Todo') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+                {{ __('User') }}
+            </x-responsive-nav-link>
+        </div>
+    </div>
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
