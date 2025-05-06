@@ -12,17 +12,16 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-    
-                    <x-nav-link href="{{ route('todo.index') }}" :active="request()->routeIs('todo.index')">
-                         {{ __('Todo') }}
-                     </x-nav-link>
+                    <x-nav-link :href="route('todo.index')" :active="request()->routeIs('todo.index')">{{__('Todo') }}</x-nav-link>
+                    @can('admin')
+                        <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+                            {{ __('User') }}
+                        </x-responsive-nav-link>
+                    @endcan
 
-                    <x-nav-link href="{{ route('user.index') }}" :active="request()->routeIs('user.index')">
-                         {{ __('User') }}
-                    </x-nav-link>
                 </div>
             </div>
 
