@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,6 +33,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::patch('/user/{user}/removeadmin', [UserController::class, 'removeadmin'])->name('user.removeadmin');
 
 
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('category', CategoryController::class);
 });
 
 require __DIR__.'/auth.php';
