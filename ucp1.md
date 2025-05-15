@@ -9,4 +9,4 @@
 ## 5. Bagian User
 ![Alt text](screenshot/ucp-1-category/bagianUser.png)
 ## 6. Bagian ini harusnya usernamenya Admin tapi ini nama saya sendiri mas udah ku coba ganti ga bisa 
-![Alt text](screenshot/ucp-1-category/Screenshot 2025-05-03 122146.png)
+![Alt text](screenshot/ucp-1-category/ss.png)
