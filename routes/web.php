@@ -19,9 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
     Route::resource('todo', TodoController::class)->except(['show']); 
-    Route::delete('todo/', [TodoController::class, 'destroyCompleted'])->name('todo.deleteallCompleted');
+    Route::delete('todo/completed', [TodoController::class, 'destroyCompleted'])->name('todo.deleteallcompleted');
     Route::patch('/todo/{todo}/complete', [TodoController::class, 'complete'])->name('todo.complete');
     Route::patch('/todo/{todo}/incomplete', [TodoController::class, 'uncomplete'])->name('todo.uncomplete');
 });

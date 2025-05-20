@@ -22,6 +22,7 @@
                             required
                             autofocus
                             autocomplete="title"
+                            value="{{ old('title') }}"
                         />
                         <x-input-error class="mt-2" :messages="$errors->get('title')" />
                     </div>
@@ -32,12 +33,13 @@
                         <select
                             id="category_id"
                             name="category_id"
-                            required
                             class="block w-full mt-1 rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:ring focus:ring-indigo-500 @error('category_id') border-red-500 @enderror"
                         >
-                            <option value="">-- Choose Category --</option>
+                            <option value="">-- Tanpa Kategori --</option>
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                                    {{ $category->title }}
+                                </option>
                             @endforeach
                         </select>
                         <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
