@@ -7,9 +7,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "spatie/laravel-openapi": "dev-main",
         "laravel/framework": "^12.0",
-        "laravel/sanctum": "^4.1",
-        "laravel/tinker": "^2.10.1"
+        "laravel/sanctum": "^4.0",
+        "laravel/tinker": "^2.10.1",
+        "tymon/jwt-auth": "^2.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.15",
@@ -69,6 +71,12 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
-    "prefer-stable": true
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/spatie/laravel-openapi"
+        }
+    ]
 }
