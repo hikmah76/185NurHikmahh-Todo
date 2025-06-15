@@ -12,16 +12,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->alias([
-            'admin' => \App\Http\Middleware\Admin::class,
-            'admin.api' => \App\Http\Middleware\AdminApi::class,
+        // Exclude docs route dari CSRF verification
+        $middleware->validateCsrfTokens(except: [
+            '/docs/api',
+            '/docs/api/*',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
-    })->withSingletons(
-        [
-            \Illuminate\Contracts\Debug\ExceptionHandler::class =>
-            \App\Exceptions\InvalidToken::class,
-        ]
-    )->create();
+    })->create();
